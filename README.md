@@ -1,1 +1,1 @@
-# Project Maieutics
+# Project Magpie
