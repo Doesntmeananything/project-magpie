@@ -15,7 +15,15 @@ export const PersonCard = ({
   currentSkill
 }: PersonCardProps) => {
   return (
-    <Box p={2} display="flex" width="xs" alignItems="center" shadow="md">
+    <Box
+      p={2}
+      display="flex"
+      width="xs"
+      alignItems="center"
+      rounded="lg"
+      bg="purple.50"
+      shadow="md"
+    >
       <Avatar src={avatarUrl} name={name} size="lg" />
       <Box ml={4}>
         <Text
@@ -36,7 +44,7 @@ export const PersonCard = ({
         >
           {jobTitle}
         </Text>
-        <Text color="gray.500">Levelling up in</Text>
+        <Text color="gray.600">Levelling up in</Text>
         <Badge variantColor="green">{currentSkill}</Badge>
       </Box>
     </Box>
