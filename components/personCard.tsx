@@ -1,18 +1,20 @@
 import React from "react";
-import { Box, Text, Avatar, Badge } from "@chakra-ui/core";
+import { Box, Text, Avatar, Badge, Icon } from "@chakra-ui/core";
 
 type PersonCardProps = {
   avatarUrl: string;
-  name: string;
+  fullName: string;
   jobTitle: string;
   currentSkill: string;
+  key?: string;
 };
 
 export const PersonCard = ({
   avatarUrl,
-  name,
+  fullName,
   jobTitle,
-  currentSkill
+  currentSkill,
+  ...props
 }: PersonCardProps) => {
   return (
     <Box
@@ -23,9 +25,11 @@ export const PersonCard = ({
       rounded="lg"
       bg="purple.50"
       shadow="md"
+      style={{ willChange: "transform" }}
+      {...props}
     >
-      <Avatar src={avatarUrl} name={name} size="lg" />
-      <Box ml={4}>
+      <Avatar src={avatarUrl} name={fullName} size="lg" />
+      <Box ml={4} flexGrow={1}>
         <Text
           mt={1}
           display="block"
@@ -33,7 +37,7 @@ export const PersonCard = ({
           lineHeight="normal"
           fontWeight="semibold"
         >
-          {name}
+          {fullName}
         </Text>
         <Text
           fontWeight="bold"
@@ -46,6 +50,12 @@ export const PersonCard = ({
         </Text>
         <Text color="gray.600">Levelling up in</Text>
         <Badge variantColor="green">{currentSkill}</Badge>
+      </Box>
+      <Box alignSelf="flex-start" className="drag-handle" cursor="grab">
+        <Icon
+          name="drag-handle"
+          style={{ backfaceVisibility: "visible" }}
+        ></Icon>
       </Box>
     </Box>
   );
